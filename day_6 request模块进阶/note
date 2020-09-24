@@ -1,0 +1,57 @@
+模拟登录:
+    - 爬取基于某些用户的用户信息
+
+
+    验证码每次都会变化
+
+
+没有请求到对应页面数据的原因:
+    发起的第二次基于主页页面请求时候,服务端不知道该此请求是基于登录状态的请求
+
+    cookie : 用来记录客户端相关的状态
+
+    requests headers 里面cookie值
+    手动  (不推荐)
+    headers = {
+        'Cookie' : 'x'
+    }
+
+    自动处理
+        - Cookie值的来源在哪?
+            - 模拟登录post请求后, 由服务端创建.
+        session会话对象:
+            - 作用:
+                1 可以进行请求的发送.
+                2 如果请求过程中产生了cookie,则该cookie会被自动储存/携带session会话对象中
+        - 创建一个session对象     session = requests.Session()
+        - 使用session对象进行模拟登录post请求的发送  (cookie会被储存在session对象)
+        - session对象对个人主页的get请求进行发送    (携带了cookie)
+
+模拟登录cookie操作
+
+
+
+代理ip:
+    破解封ip这种反爬机制
+
+什么是代理:
+    - 代理服务器.
+代理的作用:
+    - 突破自身ip访问的限制.
+    - 可以隐藏自身ip
+代理相关的网站:
+    - 快代理
+    - 西祠代理
+    - www.goubanjia.com
+代理ip的类型
+    - http : 应用到http协议对应的url中
+    - https: 应用到https协议对应的url中
+
+get post 参数:
+    proxies = {"https":'111.111.11.11:8821'}
+
+代理ip的匿名度:
+        - 透明: 这个服务器知道该次请求使用了代理,也知道请求对应的真实ip
+        - 匿名: 知道了使用了代理,但是不知道你真实ip
+        - 高匿: 不知道你使用了代理
+

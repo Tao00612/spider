@@ -1,0 +1,52 @@
+聚焦爬虫: 爬取页面指定的内容.
+    - 编码流程
+        - 指定url
+        - 发起请求
+        - 获取响应数据
+        - 数据解析
+        - 持久化存储
+
+数据解析分类
+    - 正则
+    - bs4
+    - xpath (***)
+
+数据解析原理概述
+    - 解析的局部的文本内容都会在标签之间或者标签对应的属性进行存储
+    - 1 进行指定标签的定位
+    - 2 标签或者标签对应的属性中存储的数据值进行提取 (解析)
+
+
+
+bs4数据解析的原理
+    - 1 实例化一个Beautiful对象, 并且将页面源码加载到该对象中
+    - 2 通过调用Beautiful对象中相关的属性或者方法进行标签定位和数据提取
+
+环境的安装
+    pip install bs4
+
+对象提供的方法和属性说明:
+        soup.tagName 返回html第一次出现的tagName标签
+
+        soup.find():  找到符合条件的第一个
+            - find('div') 等于 soup.div
+            - 属性定位  soup.find('div',class_/id/attr='shuxingzhi')
+
+        soup.findall('tagName'): 全部找到符合条件的 列表
+            - 属性定位
+
+        select:
+            - select('某种选择器 (id,class ) ') 返回的是列表
+            - 层级选择器
+                - select('.tang > ul > li > a') : 大于号表示一个层级
+                - select('.tang > ul a') : 空格表示多个层级
+            - 获取标签之间的文本数据
+                - soup.a.text/string/get_text()
+                - text / get_text() 可以获取某一个标签中的所有的文本内容
+                - string 只可以获取该标签下的直系文本内容
+            - 获取标签中属性值
+                - soup.a['href']
+
+
+Xpath
+

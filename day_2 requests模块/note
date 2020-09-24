@@ -1,0 +1,24 @@
+requests模块
+    -urllib模块
+    -requests模块
+
+requests模块:python中原生的一款基于网络请求的模块, 功能非常强大,简单便捷,效率极高
+作用: 模拟浏览器发请求.
+
+如何使用: (requests模块的使用流程)
+    - 指定url
+    - 发起请求
+    - 获取响应数据
+    - 持久化存储
+
+环境的安装
+    pip install requests
+
+实战编码:
+    - 需求: 爬取网站首页页面
+
+
+- UA检测  - UA伪装
+
+- POST(携带了参数)
+    - 响应数据是一组json数据
