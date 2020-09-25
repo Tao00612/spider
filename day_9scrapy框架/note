@@ -13,5 +13,15 @@ scrapy框架
     - 环境的安装
         - mac&liunx  pip install scrapy
         - windows:  ancandow
+            pip install wheel
+            下载Twisted 安装
+            pip install pywin32
             conda install scrapy
 
+    - 创建一个工程: scrapy startproject xxxPro
+     - cd xxxPro
+    - 需要在spiders子目录中创建一个爬虫文件
+        - scrapy genspider spidername www.xxx.com
+
+    - 执行工程
+        - scrapy crawl spidername
