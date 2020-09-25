@@ -17,7 +17,10 @@ NEWSPIDER_MODULE = 'firstBlood.spiders'
 #USER_AGENT = 'firstBlood (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
+
+# 终端输出指定类型的信息
+LOG_LEVEL = 'ERROR'
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
