@@ -12,7 +12,7 @@ scrapy框架
 - scrapy框架的基本使用
     - 环境的安装
         - mac&liunx  pip install scrapy
-        - windows:  ancandow
+        - windows:
             pip install wheel
             下载Twisted 安装
             pip install pywin32
@@ -52,3 +52,13 @@ scrapy框架
             - 管道文件中的一个管道类对应是将数据存储到一种平台
             - 爬虫文件调交的item只会给管道文件中第一个被执行的管道类接收
             - precess_item中的 return item 表示将item传递给下一个即将被执行的管道类
+
+
+- 基于Spider的全站数据爬取
+    - 就是将网站中某板块下的全部页码对应的页面数据爬取和解析
+    - 需求 爬取校花网的图片名称
+    - 实现方法:
+        - 将所有页面的url添加到starts_ulrs列表 (不推荐)
+        - 自动手动进行请求发送 (推荐)
+            -   手动请求发送
+                    - yield scrapy.Request(url=new_url,callback=parse)
