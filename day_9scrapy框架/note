@@ -1,0 +1,17 @@
+scrapy框架
+
+-- 什么是框架
+    - 集成了很多功能的,并且具有很强通用性的一个项目模板.
+
+-- 如何学习框架
+    - 专门学习框架封装各种功能的详细用法.
+
+-- 什么是scrapy?
+    - 爬虫中封装好的一个明星框架.功能: 高性能的持久化操作,异步的数据下载,高性能的数据解析,分布式
+
+- scrapy框架的基本使用
+    - 环境的安装
+        - mac&liunx  pip install scrapy
+        - windows:  ancandow
+            conda install scrapy
+

@@ -22,7 +22,7 @@ selenium使用流程:
         - 关闭浏览器  quit()
 
     - selenium处理iframe
-        - 如果定位的标签存在于iframe标签之中,则必须使用switch_to_frame(id)
+        - 如果定位的标签存在于iframe标签之中,则必须使用 switch_to.frame(name)
         - 动作链(拖动) : from selenium.webdriver import ActionChains
             - 实例化一个动作链对象 action = ActionChains(bro)
             - click_and_hold(div) 长按且点击
@@ -31,3 +31,9 @@ selenium使用流程:
             - action.release()  释放动作链对象
 
 
+    - 12306模拟登录编码流程
+        - 需要使用selenium打开登录页面 get
+        - 需要对当前打开的这张页面进行截图
+        - 对当前图片局部(验证码图片)去进行裁剪
+            - 好处 : 可以将验证码图片和模拟登录图片一一对应
+        - 使用超级鹰识别验证码图片(坐标)
