@@ -27,7 +27,7 @@ scrapy框架
         - scrapy crawl spidername
 
 
-- 数据解析
+- 数据解析 extract_first()
     content = div.xpath('./a[1]/div/span[1]//text()').extract()
 - 持久化存储
     - 基于终端指令:
@@ -62,3 +62,58 @@ scrapy框架
         - 自动手动进行请求发送 (推荐)
             -   手动请求发送
                     - yield scrapy.Request(url=new_url,callback=parse)
+
+- 五大核心组件
+    - spider
+        - 产生url并对url请求发送
+        - 使用parse进行数据解析
+    - 管道
+        - 持久化存储
+
+    - 引擎
+        - 中转站
+
+        - 为什么要经过引擎
+            - 用作为数据流处理
+                拿到不同的数据流,就会知道该调用不同的方法
+                比如引擎拿到response,就会知道调用parse方法了
+            - 可以触发事务
+
+    - 调度器
+        - 组成
+            - 过滤器: 对重复请求对象去重过滤
+            - 队列: 经过去重的对象放在队列中
+        - 对请求对象进行处理
+
+    - 下载器
+        - 负责数据下载  -> response
+
+
+- 请求传参
+    - 使用场景: 如果要爬取解析的数据,不在同一张页面. (深度爬取)
+    - 需求: 爬取boss的岗位名称,岗位描述
+
+    # 请求传参  meta = {}
+    yield scrapy.Request(deltail_url, callback=self.parse_det,meta={'item':item})
+
+
+- 图片数据爬取之ImagePipeline
+    - 基于scrapy爬字符串类型的数据和爬取图片类型的数据区别?
+        - 字符串:只需要xpath进行解析且提交管道进行持久化存储
+        - 图片: xpath解析出img的src的属性值.单股的对图片地址发起请求获取图片二进制类型数据
+
+    - 基于ImagePipeline:
+        -只需要将img的src的属性进行解析,提交到管道,管道就会对图片的属性值就会请求,获取二进制数据且持久化存储
+    - 需求:
+        - 爬取站长素材的高清图片
+
+    - 使用流程:
+        - 数据解析 (图片的地址)
+        - 将存储图片地址的item提交到指定的管道类
+        - 在管道文件中自订制一个基于ImagePipeline的一个管道类
+            - get_media_request()
+            - file_path()
+            - item_completed()
+        在配置文件中
+            - 指定图片存储的目录结构IMAGES_STORE = './imgs_xx'
+            - 指定开启的管道
