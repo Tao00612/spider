@@ -1,6 +1,6 @@
 from selenium import webdriver
 import time
-bro = webdriver.Chrome(executable_path='./chromedriver.exe')
+bro = webdriver.Chrome(executable_path='chromedriver.exe')
 # 实例化对象
 
 bro.get('https://www.taobao.com/')

@@ -46,7 +46,7 @@ class Chaojiying_Client(object):
         return r.json()
 
     def get_url(self):
-        bro = webdriver.Chrome(executable_path='./chromedriver.exe')
+        bro = webdriver.Chrome(executable_path='chromedriver.exe')
         bro.get('https://kyfw.12306.cn/otn/resources/login.html')
 
 
@@ -65,7 +65,7 @@ from selenium.webdriver import ActionChains
 
 option = ChromeOptions()
 option.add_experimental_option('excludeSwitches', ['enable-automation'])
-bro = webdriver.Chrome(executable_path='./chromedriver.exe', options=option)
+bro = webdriver.Chrome(executable_path='chromedriver.exe', options=option)
 
 bro.get('https://kyfw.12306.cn/otn/login/init')
 bro.execute_script('document.body.style.zoom="0.5"')

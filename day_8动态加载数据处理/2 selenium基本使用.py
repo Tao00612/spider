@@ -2,7 +2,7 @@ from selenium import webdriver
 from lxml import etree
 from time import sleep
 # 选择下载好的驱动程序
-bro = webdriver.Chrome(executable_path='./chromedriver.exe')
+bro = webdriver.Chrome(executable_path='chromedriver.exe')
 # 实例化好了一个浏览器对象
 
 # 让浏览器发起请求

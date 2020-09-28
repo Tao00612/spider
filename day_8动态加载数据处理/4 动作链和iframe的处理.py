@@ -3,7 +3,7 @@ from time import sleep
 # 导入动作链的类
 from selenium.webdriver import ActionChains
 
-bro = webdriver.Chrome(executable_path='./chromedriver.exe')
+bro = webdriver.Chrome(executable_path='chromedriver.exe')
 
 bro.get('https://www.runoob.com/try/try.php?filename=jqueryui-api-draggable')
 

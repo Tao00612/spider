@@ -1,7 +1,7 @@
 from selenium import webdriver
 from time import sleep
 
-bro = webdriver.Chrome(executable_path='./chromedriver.exe')
+bro = webdriver.Chrome(executable_path='chromedriver.exe')
 
 bro.get('https://qzone.qq.com/')
 
